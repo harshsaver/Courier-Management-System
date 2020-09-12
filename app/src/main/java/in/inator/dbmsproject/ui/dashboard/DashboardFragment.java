@@ -39,7 +39,7 @@ public class DashboardFragment extends Fragment {
     private DashboardViewModel dashboardViewModel;
     EditText et_tit, et_des, et_weight, et_add, et_city, et_state, et_pincode, et_type;
     Button submitbt;
-    String resUrl="http://tesla.codes/xapi/courier.php?apicall=addpackage";
+    String resUrl="http://tesla.codes/xapi/couriers.php?apicall=addpackage";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
@@ -53,14 +53,13 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        et_tit = root.findViewById(R.id.);
-        et_des = root.findViewById(R.id.);
-        et_weight = root.findViewById(R.id.);
-        et_add = root.findViewById(R.id.);
-        et_city = root.findViewById(R.id.);
-        et_tit = root.findViewById(R.id.);
-        et_state = root.findViewById(R.id.);
-        et_pincode = root.findViewById(R.id.);
+        et_tit = root.findViewById(R.id.et_ptitle);
+        et_des = root.findViewById(R.id.et_pdesc);
+        et_weight = root.findViewById(R.id.et_pweight);
+        et_add = root.findViewById(R.id.et_paddress);
+        et_city = root.findViewById(R.id.et_pct);
+        et_state = root.findViewById(R.id.et_pstate);
+        et_pincode = root.findViewById(R.id.et_ppin);
         //et_type = root.findViewById(R.id.);
         submitbt = root.findViewById(R.id.bt_psend);
 
@@ -76,7 +75,7 @@ public class DashboardFragment extends Fragment {
     }
 
     public void validateData(){
-        String title = et_tit.getText().toString().trim(), desc = et_des.getText().toString().trim(),weight = et_weight.getText().toString().trim(), address = et_add.getText().toString().trim(), city = et_city.getText().toString().trim(), state = et_state.getText().toString().trim(), pincode = et_pincode.getText().toString().trim(), type = et_type.getText().toString().trim();
+        String title = et_tit.getText().toString().trim(), desc = et_des.getText().toString().trim(),weight = et_weight.getText().toString().trim(), address = et_add.getText().toString().trim(), city = et_city.getText().toString().trim(), state = et_state.getText().toString().trim(), pincode = et_pincode.getText().toString().trim(), type = "0";
 
         if(title.equals("")){
             FancyToast.makeText(getContext(),"Enter a valid title",FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();

@@ -16,10 +16,6 @@
         android:icon="@drawable/user"
         android:iconTint="@color/black"
         android:title="Profile" />
-    <item
-        android:id="@+id/navigation_about"
-        android:icon="@drawable/info"
-        android:iconTint="@color/black"
-        android:title="About" />
+
 
 </menu>

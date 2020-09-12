@@ -61,6 +61,13 @@ String resUrl="http://tesla.codes/xapi/auth.php?apicall=updateuser";
         city = root.findViewById(R.id.et_ct);
         state = root.findViewById(R.id.et_state);
         pincode = root.findViewById(R.id.et_pin);
+
+        phn.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("uphn", ""));
+        address.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("uaddress", ""));
+        city.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ucity", ""));
+        state.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("ustate", ""));
+        pincode.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("upin", ""));
+
         submitbt = root.findViewById(R.id.bt_pubdate);
 
         submitbt.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +115,7 @@ String resUrl="http://tesla.codes/xapi/auth.php?apicall=updateuser";
         }
 
         updateProfile(sphn,scity,sstate,spincode,saddress);
+
     }
 
     public void updateProfile(final String phone, final String scity, final String sstate, final String spin, final String sadr){
@@ -135,7 +143,11 @@ String resUrl="http://tesla.codes/xapi/auth.php?apicall=updateuser";
                                     }else{
 
                                         FancyToast.makeText(getContext(),message,FancyToast.LENGTH_LONG,FancyToast.SUCCESS,false).show();
-
+                                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("uphn", phone).apply();
+                                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("uaddress", sadr).apply();
+                                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("ucity", scity).apply();
+                                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("ustate", sstate).apply();
+                                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString("upin", spin).apply();
                                     }
 
                                 }catch(JSONException j){

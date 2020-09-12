@@ -83,7 +83,7 @@ boolean termscheck = false;
                                 try{
                                     JSONObject regObject = new JSONObject(response);
                                     boolean error = regObject.getBoolean("error");
-                                    System.out.println(error +  " idhar");
+                                    System.out.println(error +  "idhar");
                                     String message = regObject.getString("message");
 
                                     if(error){
